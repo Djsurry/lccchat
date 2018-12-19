@@ -1,0 +1,6 @@
+# ignore all databases to protect users
+*.db
+*.pyc
+__pycache__/*
+Chat-App/*
+key.txt

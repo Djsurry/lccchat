@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<title>LCC Chat</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px}
+</style>
+<head>
+<link rel="icon" href="/static/icon.png">
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="/" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+        <i class="fa fa-home"></i>
+    </a>
+    <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-white">About</a>
+    <a href="/downloads" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+        <i class="far fa-download fa"></i>
+    </a>
+    <a href="/help" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+        <i class="far fa-question-circle fa"></i>
+    </a>
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+    <a href="/about" class="w3-bar-item w3-button w3-padding-large">About</a>
+    <a href="/downloads" class="w3-bar-item w3-button w3-padding-large">Downloads</a>
+    <a href="/help" class="w3-bar-item w3-button w3-padding-large">Help</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-red w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">About</h1>
+  <p class="w3-xlarge">What it is, why we made it, and how to get it</p>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>What it is</h1>
+      <h5 class="w3-padding-32">LCC Chat is a product we are develping to allow easy communication between LCC students without having to use email. It uses email verification to protect users identities and make sure only LCC students can use it. Eventually it will hopefully turn into a fully-fledged desktop app, but these things take time. I hope to be coming out with a proof of concept simple UI in the coming weeks. I think this is will be a great new tool for LCC students for both educational and social needs.</h5>
+
+      <p class="w3-light-grey w3-panel w3-text-grey w3-serif">"I started this project because of conversations I had had with my friends as well as a way to practice my software development skills. I really hope people enjoy and use this tool." --David Surry</p>
+      
+    </div>
+      
+    
+    <!-- Image -->
+    <div class="w3-quarter w3-right w3-margin">
+      <img src="https://clip2art.com/images/instagramm-clipart-text-20.png" width="350" height="300">
+    </div>
+  </div>
+</div>
+  
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Our Goal</h1>
+      <h5 class="w3-padding-32">The main goal of this project is to help students connect to each other without having to email back and forth which becomes tedious at some point. With this program we will hopefully remove the dependancy for email to connect with other LCC students whether it be for asking one person for homework or working together on a group project.</h5>
+</div>
+</div>
+</div>
+  
+
+<!-- Second Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+
+    <div class="w3-twothird">
+      <h1>What we learned</h1>
+      <h5 class="w3-padding-32">Throughout the process, we learned and practiced many skills. Some of which are listed below</h5>
+      <ul class="w3-ul">
+        <li class="w3-text-grey"><b>Server Management:</b> To host the webserver, we use an external server. Although not as easy as using sqaure space or wix, it allowed us to understand how to host our own server and work as server admins.</li>
+        <li class="w3-text-grey"><b>Webpage Building:</b> Most people just use wix or square space to make websites today. We though it was important to learn how to make our own using HTML, CSS and JavaScript.</li>
+        <li class="w3-text-grey"><b>Low Level Networking:</b> The webserver uses TCP protocal sockets to communicate with the app, so we had to deal with all the encrytion, authentication, and bits/bytes that comes along with it.</li>
+        <li class="w3-text-grey"><b>Programming:</b> We mainly used python to run the backend of the webserver, make the GUI of the app, and control the networking of the app. We also used several languages mentioned above to create our website. All in all we were exposed to a full range of what python offers as well as using other coding languages.</li>
+        <li class="w3-text-grey"><b>Marketing:</b> Along with all the technical skills, we still have to get people to download the app. This is where marketing skills comes in.</li>
+        <li class="w3-text-grey"><b>Time Management:</b> If all that seems like a lot, thats because it is. This requires us to plan and execute in an efficient manner.</li>
+        <li class="w3-text-grey"><b>Collaboration:</b> We had to make sure that everyone in the group had a role and that we were all working diligently to meet our goals.</li>
+      </ul>
+</div>
+</div>
+</div>
+  
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>How to Use it</h1>
+      <h5 class="w3-padding-32">Sadly, as of right now you cannot use it. I have yet to finish version 0.1, but I hope to have it done in the coming weeks.</h5>
+      <p class="w3-text-grey">Eventually you will be able to download the app from the Downloads tab. If you sign up for email updates you will be notified when it is ready.</p>
+</div>
+</div>
+</div>
+  
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>The Team</h1>
+      <h5>Avinash Lal, Alexandro Koutroubis, David Surry, Justin Ricci</h5>
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
+  <div class="w3-xlarge w3-padding-32">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+ </div>
+ <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+</footer>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
+
+
