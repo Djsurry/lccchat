@@ -40,7 +40,7 @@ def signup():
 def verify():
     token = request.args.get("token")
     if token == None:
-        return "Bad Request", 404
+        return render_template("verify.html", msg="Bad request")
     conn = sqlite3.connect('/var/www/lccchat/lccchat/lccchat.db')
     c = conn.cursor()
 
@@ -54,14 +54,14 @@ def verify():
         if token in h:
             user = [v, h] 
     if not user:
-        return "Bad token"
+        return render_template("verify.html", msg="Bad token")
     print(user)
     if user[0][user[1].index(token)] == "0":
         n = user[0]
         n[user[1].index(token)] = "1"
     else:
         conn.close()
-        return "Token Already Used"
+        return render_template("verify.html", msg="Token Already Used")
 
     s = ''
     for i in n:
@@ -73,7 +73,7 @@ def verify():
     os.system("touch /home/histories/{}.json".format(token))
     conn.commit()
     conn.close()
-    return render_template("verify.html")
+    return render_template("verify.html", msg="Your account has been verified")
     
  
 if __name__ == "__main__":
