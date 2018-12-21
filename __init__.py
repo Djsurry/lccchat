@@ -49,8 +49,8 @@ def verify():
     user = None
     for row in r:
         print(row)
-        v = row[0].split(' ')
-        h = row[1].split(' ')
+        v = row[0].split()
+        h = row[1].split()
         if token in h:
             user = [v, h] 
     if not user:
