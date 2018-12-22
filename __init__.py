@@ -65,7 +65,6 @@ def verify():
     if len(found["tokens"]) == 1:
         addr = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
         c.execute('update users set history="/home/histories/{}.json" WHERE email=?'.format(addr), (found["email"],))
-        os.system("touch /home/histories/{}.json".format(addr))
     c.execute("update users set verified=? WHERE email=?", (new, found["email"])) 
     conn.commit()
     conn.close()
