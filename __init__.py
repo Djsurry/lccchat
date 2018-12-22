@@ -1,5 +1,5 @@
 from flask import Flask, render_template, send_file, request
-import sqlite3, string
+import sqlite3, string, random
 import sys, os
 
 app = Flask(__name__)
