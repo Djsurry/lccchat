@@ -1,5 +1,5 @@
 from flask import Flask, render_template, send_file, request
-import sqlite3
+import sqlite3, string
 import sys, os
 
 app = Flask(__name__)
@@ -38,39 +38,35 @@ def signup():
 
 @app.route("/verify")
 def verify():
-    token = request.args.get("token")
+	token = request.args.get("token")
     if token == None:
         return render_template("verify.html", msg="Bad request")
     conn = sqlite3.connect('/var/www/lccchat/lccchat/lccchat.db')
     c = conn.cursor()
+	a = list(c.execute('select email, verified, hash from users;'))
+	def construct(n):
+	    email = n[0]
+	    vers = n[1].split()
+	    tokens = n[2].split()
+	    return {"email": email, "vers": vers, "tokens": tokens}
+	users = [construct(n) for n in a]
+	for user in users:
+	    if token in user["tokens"]:
+	        found = user
+	        break
+	else:
+	    return render_template("verify.html", msg="Bad token")
 
-    r = [n for n in c.execute("select verified, hash from users")]
-    print(f"r: {r}")
-    user = None
-    for row in r:
-        print(row)
-        v = row[0].split()
-        h = row[1].split()
-        if token in h:
-            user = [v, h] 
-    if not user:
-        return render_template("verify.html", msg="Bad token")
-    print(user)
-    if user[0][user[1].index(token)] == "0":
-        n = user[0]
-        n[user[1].index(token)] = "1"
-    else:
-        conn.close()
-        return render_template("verify.html", msg="Token Already Used")
+	if found["vers"][found['tokens'].index(token)] == "1":
+		return render_template("verify.html", msg="Token Already Used")
 
-    s = ''
-    for i in n:
-        s += i
-        s += " "
-    
-    c.execute("update users set verified=? WHERE hash=?", (s, token)) 
-    c.execute('update users set history="/home/histories/{}.json" WHERE hash=?'.format(token), (token,))
-    os.system("touch /home/histories/{}.json".format(token))
+	found["vers"][found['tokens'].index(token)] = "1"
+	new = ' '.join(found["vers"])
+	if len(found["tokens"]) == 1:
+		addr = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
+		c.execute('update users set history="/home/histories/{}.json" WHERE email=?'.format(addr), (found["email"],))
+		os.system("touch /home/histories/{}.json".format(addr))
+	c.execute("update users set verified=? WHERE email=?", (new, found["email"])) 
     conn.commit()
     conn.close()
     return render_template("verify.html", msg="Your account has been verified")
