@@ -62,7 +62,7 @@ def verify():
 
     found["vers"][found['tokens'].index(token)] = "1"
     new = ' '.join(found["vers"])
-    if len(found["tokens"]) == 1:
+    if list(c.execute("select histroy from users where email=?", (found["email"],)))[0][0] == '':
         addr = ''.join(random.choices(string.ascii_uppercase + string.digits, k=16))
         c.execute('update users set history="/home/histories/{}.json" WHERE email=?'.format(addr), (found["email"],))
     c.execute("update users set verified=? WHERE email=?", (new, found["email"])) 
